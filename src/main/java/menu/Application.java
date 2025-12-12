@@ -1,12 +1,16 @@
 package menu;
 
-import menu.controller.RecommendController;
-import menu.model.service.RecommendService;
+
+import menu.controller.MenuController;
+import menu.service.MenuRecommendService;
+import menu.view.InputView;
+import menu.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        RecommendController controller = new RecommendController(new RecommendService());
-        controller.start();
+        MenuController menuController = new MenuController(
+                new OutputView(), new InputView(), new MenuRecommendService()
+        );
+        menuController.run();
     }
 }

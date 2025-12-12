@@ -8,12 +8,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.woowacourse-projects:mission-utils:1.1.0'
+    implementation 'com.github.woowacourse-projects:mission-utils:1.2.0'
+    testImplementation 'org.mockito:mockito-inline:5.1.1'
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 

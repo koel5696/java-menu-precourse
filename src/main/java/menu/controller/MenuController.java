@@ -2,7 +2,7 @@ package menu.controller;
 
 import java.util.List;
 import menu.domain.Coach;
-import menu.domain.CoachNames;
+import menu.domain.Coaches;
 import menu.domain.Menu;
 import menu.service.MenuRecommendService;
 import menu.view.InputView;
@@ -21,25 +21,25 @@ public class MenuController {
 
     public void run() {
         outputView.printStartingMessage();
-        CoachNames coachNames = inputCoach();
-        inputUneatableMenu(coachNames);
-        List<Menu> result = menuService.menuRecommend(coachNames);
-        outputView.printRecommendResults(coachNames, result);
+        Coaches coaches = inputCoach();
+        inputUneatableMenu(coaches);
+        List<Menu> result = menuService.menuRecommend(coaches);
+        outputView.printRecommendResults(coaches, result);
     }
 
-    public CoachNames inputCoach() {
+    public Coaches inputCoach() {
         while (true) {
             try {
-                String inputCoachNames = inputView.inputCoachNames();
-                return new CoachNames(List.of(inputCoachNames.split(",")));
+                String inputCoaches = inputView.inputCoaches();
+                return new Coaches(List.of(inputCoaches.split(",")));
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e.getMessage());
             }
         }
     }
 
-    public void inputUneatableMenu(CoachNames coachNames) {
-        for (Coach coach : coachNames.getCoachNames()) {
+    public void inputUneatableMenu(Coaches coaches) {
+        for (Coach coach : coaches.getCoaches()) {
             inputUneatableMenuFor(coach);
         }
     }

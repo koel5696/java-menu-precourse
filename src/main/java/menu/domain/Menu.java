@@ -2,7 +2,6 @@ package menu.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import menu.domain.util.RandomUtil;
 
 public enum Menu {
     JAPAN(1, "일식", "규동, 우동, 미소시루, 스시, 가츠동, 오니기리, 하이라이스, 라멘, 오코노미야끼"),
@@ -45,8 +44,8 @@ public enum Menu {
         throw new IllegalArgumentException("[ERROR] 유효하지 않은 카테고리 번호입니다.");
     }
 
-    public String getMenu() {
-        return RandomUtil.menuShuffle(menus);
+    public List<String> getMenus() {
+        return menus;
     }
 
     public String getCategory() {

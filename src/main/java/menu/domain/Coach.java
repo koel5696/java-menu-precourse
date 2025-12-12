@@ -26,7 +26,7 @@ public class Coach {
     public void addUneatableMenu(List<String> uneatableMenu) {
         ValidateUneatableMenuCount(uneatableMenu);
         uneatableMenu.forEach(menu -> {
-            Menu.validateMenu(menu);
+            Menu.validateMenu(menu.trim());
             this.uneatableMenu.add(menu);
         });
 
